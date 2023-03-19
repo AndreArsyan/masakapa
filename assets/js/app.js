@@ -5,24 +5,12 @@ $(document).ready(function () {
         $("#modal-close").hide();
         $("#modal-btn-close").hide();
         BAHAN = $("#bahan").val()
-        prompt = "Hi ChatGPT, tampilkan 1 resep makanan indonesia yang bisa dimasak hanya dengan menggunakan bahan berikut ini: " + BAHAN
         $.ajax({
-            url: "https://api.openai.com/v1/chat/completions",
-            method: "POST",
+            url: "https://flask-hello-world-tau-three.vercel.app/callgpt/?bahan=" + BAHAN,
+            method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer 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"
             },
-            data: JSON.stringify({
-                "model": "gpt-3.5-turbo",
-                "messages": [
-                    {
-                        "role": "user",
-                        "content": prompt
-                    }
-                ],
-                "temperature": 0.7
-            }),
             error: function () {
                 $("#loading-prompt").hide();
                 $("#modal-close").show();
