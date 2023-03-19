@@ -6,7 +6,7 @@ $(document).ready(function () {
         $("#modal-btn-close").hide();
         BAHAN = $("#bahan").val()
         $.ajax({
-            url: "https://flask-hello-world-tau-three.vercel.app/callgpt/?bahan=" + BAHAN,
+            url: "https://flask-hello-world-tau-three.vercel.app/gptcall/?bahan=" + BAHAN,
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
